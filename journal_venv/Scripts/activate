@@ -32,6 +32,16 @@ deactivate () {
     # Self destruct!
         unset -f deactivate
     fi
+
+    if [ ! "${1:-}" = "nondestructive" ] ; then
+        if [ -n "${_OLD_FLASK_APP:-}" ] ; then
+            FLASK_APP="${_OLD_FLASK_APP:-}"
+            export FLASK_APP
+            unset _OLD_FLASK_APP
+        else
+            unset FLASK_APP
+        fi
+    fi
 }
 
 # unset irrelevant variables
@@ -64,3 +74,8 @@ fi
 if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
     hash -r 2> /dev/null
 fi
+
+if [ -n "${FLASK_APP:-}" ] ; then
+    _OLD_FLASK_APP="${FLASK_APP:-}"
+fi
+export FLASK_APP="journalinprogress.py"
