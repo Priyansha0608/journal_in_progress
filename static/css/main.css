@@ -1,3 +1,14 @@
 #page{
     border:1px solid #000000;
 }
+
+#add_text_button{
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    width: 70px;
+    height: 70px;
+    font-weight: normal;
+    font-size: 1.3em;
+    border-radius: 50%;
+    background-color: grey;
+}
