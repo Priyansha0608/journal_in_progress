@@ -11,6 +11,10 @@
 <body>
     <h1>First Page</h1>
     <canvas id="page" width="500" height="500"> </canvas>
+    <br>
+    <label for="freeform">Enter your thoughts here!:</label> 
+    <br>
+    <textarea type="Thoughts" name="Thoughts" rows="6" cols="50" placeholder= "How are you today?"></textarea>
     <script src="{{url_for('static', filename='canvas.js')}}"></script> 
     <input type="submit" value="" id="add_text_button" onclick="add_text()">
 </body>
