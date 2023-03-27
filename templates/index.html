@@ -15,8 +15,9 @@
     <label for="freeform">Enter your thoughts here!:</label> 
     <br>
     <textarea type="Thoughts" name="Thoughts" rows="6" cols="50" placeholder= "How are you today?"></textarea>
+    <script src='https://unpkg.com/fabric@latest/dist/fabric.js'></script>
     <script src="{{url_for('static', filename='canvas.js')}}"></script> 
-    <input type="submit" value="" id="add_text_button" onclick="add_text()">
+    <button type="button" class="textbox" value="" id="add_text_button" onclick="add_text()">
 </body>
 
 </html>

@@ -1,8 +1,13 @@
-var canvas = document.getElementById("page");
-var ctx=canvas.getContext("2d");
+var canvas = new fabric.Canvas("page");
+
 function add_text() {
-    ctx.font="30px Comic Sans MS";
-    ctx.fillStyle = "red";
-    ctx.textAlight = "center";
-    ctx.fillText("Hello World", canvas.width/2, canvas.height/2);
+    var textbox = new fabric.Textbox("Enter text",{
+        width: 400,
+        left: 110,
+        top: 70,
+        fill: "black",
+        stroke: "black",
+        textAlign: "left",
+    });
+    canvas.add(textbox);
 }
