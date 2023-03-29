@@ -20,8 +20,21 @@ class Element(journal_db.Model):
     t = journal_db.Column(journal_db.Float)
     txt = journal_db.Column(journal_db.Text)
 
+    #Not a necessary function but can be helpful for debugging purposes
+    def __repr__(self) -> str:
+        return f"Element: {self.type_element} Coordinates {self.l},{self.t}"
+
 # NEXT STEP: create function to initialize canvas from database
+def initialize_canvas():
+    with app.app_context():
+        journal_db.drop_all()
+        journal_db.create_all()
+
 
 @app.route("/") # app.route is the url that runs a defined function, in this case page
 def page():
+    global initialized
+    if initialized == False:
+        initialize_canvas()
+        initialized = True
     return render_template("index.html")
